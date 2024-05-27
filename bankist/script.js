@@ -31,4 +31,10 @@ document.addEventListener('keydown', function (e) {
 });
 
 //comment 
+const header = document.querySelector('.header');
 
+const mes = document.createElement('div');
+mes.classList.add('cookie-message');
+mes.innerHTML = 'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+header.after(mes);

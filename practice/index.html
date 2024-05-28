@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            padding: 90px;
+            border: 2px solid black;
+            max-height: 900px;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        grand Parent
+        <div class="b">
+            parent
+            <div class ="c">
+                child
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.a').addEventListener('click',()=>{
+            console.log("garnd parent is clicked.")
+        });
+
+        document.querySelector('.b').addEventListener('click',()=>{
+            console.log("parent is clicked.")
+        });
+
+        document.querySelector('.c').addEventListener('click',()=>{
+            console.log("child is clicked.")
+        });
+    </script>
+</body>
+</html>

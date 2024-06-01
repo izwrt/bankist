@@ -88,4 +88,42 @@ const h4 = document.querySelector('h4');
 // console.log(h1.parentElement);
 
 
+// const randInt = (min,max) => Math.floor(Math.random() * (max - min + 1)+min);
 
+// const randColor = () => `rgb(${randInt(0,255)},${randInt(0,255)},${randInt(0,255)})`
+
+// document.querySelector('.nav__links').addEventListener('click',function(){
+//   this.style.backgroundColor = randColor();
+//   console.log(randColor());
+// })
+
+// document.querySelectorAll('.nav__link').forEach((ele) => {
+//   ele.addEventListener('click',(e) => {
+//     e.preventDefault();
+//     const id = ele.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({behavior
+//       :"smooth"
+//     })
+//   })
+// })
+
+document.querySelector('.nav__links').addEventListener('click',e => {
+  e.preventDefault();
+  if(e.target.classList.contains('nav__link')){
+    const id = e.target.getAttribute('href');
+
+    document.querySelector(id).scrollIntoView({behavior:"smooth"});
+  }
+});
+
+// console.log(h1.nextElementSibling);
+// [...h1.parentElement.children].forEach( ele => ele.style.transform = 'scale(0.5)');
+
+// h1.closest('.header').style.background = "red";
+
+// console.log(h1.previousElementSibling);
+
+// h1.children[0].style.color ='red';
+// h1.children[2].style.color ='green';
+// console.log(h1.children[2])

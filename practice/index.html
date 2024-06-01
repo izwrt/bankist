@@ -24,17 +24,17 @@
         </div>
     </div>
     <script>
-        document.querySelector('.a').addEventListener('click',()=>{
-            console.log("garnd parent is clicked.")
+        document.querySelector('.a').addEventListener('click',(e)=>{
+            console.log(e.target)
         });
 
-        document.querySelector('.b').addEventListener('click',()=>{
-            console.log("parent is clicked.")
-        });
+        // document.querySelector('.b').addEventListener('click',()=>{
+        //     console.log("parent is clicked.")
+        // });
 
-        document.querySelector('.c').addEventListener('click',()=>{
-            console.log("child is clicked.")
-        });
+        // document.querySelector('.c').addEventListener('click',()=>{
+        //     console.log("child is clicked.")
+        // });
     </script>
 </body>
 </html>

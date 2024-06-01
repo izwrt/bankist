@@ -127,3 +127,22 @@ document.querySelector('.nav__links').addEventListener('click',e => {
 // h1.children[0].style.color ='red';
 // h1.children[2].style.color ='green';
 // console.log(h1.children[2])
+
+const tabs = document.querySelectorAll('.operations__tab');
+const tabContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabContainer.addEventListener('click',e => {
+  const clicked = e.target.closest('.operations__tab')
+
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+
+  if(!clicked) return;
+
+  clicked.classList.add('operations__tab--active');
+
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'))
+
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active')
+
+})

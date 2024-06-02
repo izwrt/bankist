@@ -204,7 +204,7 @@ const eventHandler = function(e){
 
 const header = document.querySelector('.header');
 const dynamicHeight = nav.getBoundingClientRect().height;
-console.log(dynamicHeight);
+// console.log(dynamicHeight);
 
 const headerObserver = new IntersectionObserver((e =>{
   const [entry] =e;
@@ -222,3 +222,49 @@ const headerObserver = new IntersectionObserver((e =>{
 })
 
 headerObserver.observe(header);
+
+
+
+
+const allSections = document.querySelectorAll('.section');
+const sectionObserver = new IntersectionObserver((e,observe)=>{
+  const [ele] = e;
+  if(!ele.intersectionRatio) return;
+  ele.target.classList.remove('section--hidden');
+  console.log(e);
+  observe.unobserve(ele.target);
+},
+{
+  root:null,
+  threshold : 0.20
+});
+
+allSections.forEach(sec => {
+  sec.classList.add('section--hidden');
+  sectionObserver.observe(sec);
+})
+
+const allImgs = document.querySelectorAll('img[data-src]');
+
+const imgLoad = (img ,observe) =>{
+  const [enteries] = img;
+  if(!enteries.isIntersecting) return;
+  console.log(enteries);
+
+  enteries.target.src = enteries.target.dataset.src;
+
+  enteries.target.addEventListener('load',()=>{
+    enteries.target.classList.remove('lazy-img');
+  });
+  observe.unobserve(enteries.target);
+
+}
+
+
+
+const imgObserver = new IntersectionObserver(imgLoad,{
+  root : null,
+  threshold : 0
+});
+
+allImgs.forEach(e => imgObserver.observe(e));
